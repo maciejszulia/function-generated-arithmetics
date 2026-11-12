@@ -1,0 +1,86 @@
+% Shared preamble for both language versions of the paper.
+% Usage: \usepackage[polish]{fga}  or  \usepackage[english]{fga}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fga}[2026/11/12 Function-generated arithmetics]
+
+\DeclareOption{polish}{%
+  \PassOptionsToPackage{polish}{babel}%
+  \def\fga@defname{Definicja}%
+  \def\fga@thmname{Twierdzenie}%
+  \def\fga@propname{Stwierdzenie}%
+  \def\fga@corname{Wniosek}%
+  \def\fga@exname{Przykład}%
+  \def\fga@remname{Uwaga}%
+  \def\fga@proofname{Dowód}%
+}
+\DeclareOption{english}{%
+  \PassOptionsToPackage{english}{babel}%
+  \def\fga@defname{Definition}%
+  \def\fga@thmname{Theorem}%
+  \def\fga@propname{Proposition}%
+  \def\fga@corname{Corollary}%
+  \def\fga@exname{Example}%
+  \def\fga@remname{Remark}%
+  \def\fga@proofname{Proof}%
+}
+\ProcessOptions\relax
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{babel}
+\usepackage{microtype}
+\usepackage[autostyle]{csquotes}
+
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage[colorlinks=true,linkcolor=black!70,citecolor=black!70,urlcolor=blue!55!black]{hyperref}
+
+\setlength{\parskip}{0.22em}
+\setlength{\parindent}{0pt}
+
+\renewcommand{\proofname}{\fga@proofname}
+
+\theoremstyle{definition}
+\newtheorem{definition}{\fga@defname}[section]
+\newtheorem{example}{\fga@exname}[section]
+\newtheorem{remark}{\fga@remname}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}{\fga@thmname}[section]
+\newtheorem{proposition}{\fga@propname}[section]
+\newtheorem{corollary}{\fga@corname}[section]
+
+% operators of the paper
+\newcommand{\gop}{\mathbin{\oplus}}
+\newcommand{\gsub}{\mathbin{\ominus}}
+\newcommand{\gscale}{\mathbin{\odot}}
+\newcommand{\gmul}{\mathbin{\otimes}}
+\newcommand{\gdiv}{\mathbin{\oslash}}
+\newcommand{\gf}{g_{\mathrm{f}}}
+\newcommand{\gfi}{g_{\mathrm{f}}^{-1}}
+\newcommand{\gSz}{g_{\mathrm{Sz}}}
+\newcommand{\gSzi}{g_{\mathrm{Sz}}^{-1}}
+
+\pgfplotsset{
+  fgaaxis/.style={
+    width=0.92\textwidth,
+    height=0.42\textwidth,
+    grid=major,
+    grid style={black!12},
+    tick label style={font=\small},
+    label style={font=\small},
+    legend style={font=\small, draw=black!25, fill=white, fill opacity=0.9,
+                  text opacity=1},
+    legend cell align=left,
+  },
+}

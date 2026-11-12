@@ -1,0 +1,527 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[english]{fga}
+
+\title{\textbf{Function-generated arithmetics}\\[2pt]
+\large Catalogue, structural classification and numerical limits of the scheme
+$a \gop b = \gf^{-1}\big(\gf(a)+\gf(b)\big)$}
+\author{Maciej Szulia}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+This note studies the family of operations $a\gop b=\gf^{-1}\big(\gf(a)+\gf(b)\big)$,
+where $\gf$ is a bijection. Every such operation is a transport of the structure
+of the additive group $(\mathbb{R},+)$ along $\gf$. Associativity, commutativity,
+the neutral element, additive inverses and the distributivity of the induced
+multiplication therefore hold automatically. We give a catalogue of ten
+generators with exact closed forms and classify the induced structure as a
+group, a monoid or a semigroup. The classification depends on the image of
+$\gf$, not on the shape of the formula. For the two generators without an
+elementary inverse (Lambert and Kepler) we measure the numerical cost. For the
+synergy operator with the term $2\sqrt{sX}$ we prove that for $s>0$ it has no
+neutral element and is not associative, so it is not an arithmetic in the sense
+of Grossman and Katz; we report the measured size of those violations. We close
+with the physical laws that literally have this form, and with a list of claims
+that the scheme does not support.
+
+\smallskip
+\noindent\textbf{Keywords:} non-Newtonian calculus; transport of structure;
+Kolmogorov--Nagumo mean; Lambert $W$ function; numerical verification.
+\end{abstract}
+
+\section{Introduction}
+
+Many composition laws in physics share one form. First one adds a conserved
+quantity. Then one reads off the measured quantity. The resistance of two
+resistors in parallel is not the sum of the resistances. The focal length of two
+lenses is not the sum of the focal lengths. The root-mean-square of two voltages
+is not the sum of the root-mean-square values. In each case the addition happens
+in a different scale.
+
+One scheme describes all of them:
+\begin{equation}
+\label{eq:base}
+a\gop b=\gf^{-1}\big(\gf(a)+\gf(b)\big).
+\end{equation}
+The function $\gf$ is a bijection. We call it the generator. The operation $\gop$
+is addition in the scale $\gf$.
+
+The note answers three questions.
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+  \item Which part of \eqref{eq:base} is a theorem, and which part is a choice?
+  \item When is the induced structure a group, and when only a monoid or a
+        semigroup?
+  \item What happens when a term describing the environment, the so-called
+        synergy term, is added to the sum?
+\end{enumerate}
+
+The answers are largely negative. Scheme \eqref{eq:base} does not create a new
+arithmetic. It transports an existing one. The synergy term leaves the algebra
+of groups. Neither fact discards the scheme. They place it where it is useful:
+as a uniform notation and as a ready set of formulas.
+
+\section{The scheme and the transport theorem}
+
+\begin{definition}[function-generated arithmetic]
+\label{def:arith}
+Let $D\subseteq\mathbb{R}$ and let $\gf\colon D\to\mathbb{R}$ be a bijection.
+For $a,b\in D$ we define
+\[
+a\gop b=\gf^{-1}\big(\gf(a)+\gf(b)\big),\qquad
+a\gsub b=\gf^{-1}\big(\gf(a)-\gf(b)\big).
+\]
+Multiplication by a scalar $n\in\mathbb{R}$ and division by $n\neq0$ are
+\[
+n\gscale a=\gf^{-1}\big(n\,\gf(a)\big),\qquad
+a\gdiv n=\gf^{-1}\!\left(\frac{\gf(a)}{n}\right).
+\]
+Full multiplication and full division of two elements are
+\[
+a\gmul b=\gf^{-1}\big(\gf(a)\,\gf(b)\big),\qquad
+a\gdiv_{\!f} b=\gf^{-1}\!\left(\frac{\gf(a)}{\gf(b)}\right).
+\]
+\end{definition}
+
+\begin{theorem}[transport of structure]
+\label{thm:transport}
+The structure $(D,\gop)$ is an abelian group. The map $\gf$ is an isomorphism
+of groups $(D,\gop)\to(\mathbb{R},+)$.
+\end{theorem}
+
+\begin{proof}
+$\gf$ is a bijection, so it has an inverse. For $a,b,c\in D$:
+$\gf\big((a\gop b)\gop c\big)=\gf(a)+\gf(b)+\gf(c)
+=\gf\big(a\gop(b\gop c)\big)$. Commutativity follows from the commutativity of
+addition. The neutral element is $0_{\gf}=\gf^{-1}(0)$, because
+$\gf(a\gop 0_{\gf})=\gf(a)$. The inverse of $a$ is
+$\gsub a=\gf^{-1}\big(-\gf(a)\big)$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:automatic}
+The following properties hold for every generator and need no separate proof:
+associativity, commutativity, existence of $0_{\gf}$, existence of additive
+inverses, distributivity of $\gmul$ over $\gop$, associativity of $\gmul$, the
+power formula $a^{\gmul n}=\gf^{-1}\big(\gf(a)^{n}\big)$, and the mean formula
+\[
+M_{\gf}(a_{1},\dots,a_{n})=\gf^{-1}\!\left(\frac{1}{n}\sum_{k=1}^{n}\gf(a_{k})\right).
+\]
+\end{corollary}
+
+Corollary \ref{cor:automatic} is known. The mean $M_{\gf}$ is the
+quasi-arithmetic mean of Kolmogorov and Nagumo
+\cite{kolmogorov1930,nagumo1930}. The family \eqref{eq:base} was described by
+Grossman and Katz \cite{grossman1972} as non-Newtonian calculus. The same scheme
+is the standard transport of structure in algebra \cite{aczel1966}. The practical
+consequence is this. The sentence ``I discovered a new arithmetic'' means, in
+this language, ``I chose a new function $\gf$''. The content is the choice of
+$\gf$, not the formula \eqref{eq:base}.
+
+\begin{table}[t]
+\centering
+\small
+\caption{What follows from Theorem \ref{thm:transport} and what is a modelling
+choice.}
+\label{tab:automatic}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\textbf{Status} & \textbf{Item} \\
+\midrule
+theorem & associativity, commutativity, $0_{\gf}$, additive inverses,
+distributivity, power and mean formulas \\
+choice & the function $\gf$, the domain $D$, the unit and the sign of the
+measured quantity \\
+separate theorem & existence of a closed form for $\gfi$, numerical stability,
+behaviour as $x\to\partial D$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Classification: group, monoid, semigroup}
+
+Theorem \ref{thm:transport} assumes that $\gf$ maps $D$ onto all of
+$\mathbb{R}$. That assumption often fails. Electrical resistance is positive.
+Probability lies in $(0,1)$. Absolute temperature is non-negative. The image of
+the generator is then a subset of $\mathbb{R}$, and the induced structure is
+weaker. The type of structure depends only on the image of $\gf$.
+
+\begin{proposition}
+\label{prop:classification}
+Let $\gf\colon D\to\mathbb{R}$ be a bijection onto its image $g(D)$.
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+  \item If $g(D)=\mathbb{R}$, then $(D,\gop)$ is a group.
+  \item If $g(D)=[0,\infty)$, then $(D,\gop)$ is a monoid: $0_{\gf}$ exists,
+        additive inverses do not.
+  \item If $g(D)=(0,\infty)$, then $(D,\gop)$ is a semigroup: no $0_{\gf}$
+        exists in $D$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Part (a) is Theorem \ref{thm:transport}. For (b), $0\in g(D)$, so $0_{\gf}$
+exists. For $a\neq0_{\gf}$ the element $-\gf(a)$ is negative and does not belong
+to $g(D)$; the additive inverse does not exist. For (c), $0\notin g(D)$, so
+$\gfi(0)$ does not exist in $D$; the operation has no neutral element.
+\end{proof}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Catalogue of generators. Each row gives the exact form of $\gf$, the
+exact form of $\gfi$, the domain, the image, the type of structure and the
+constants $0_{\gf}$ and $1_{\gf}$. The numbers were produced by
+\texttt{scripts/verify.py}.}
+\label{tab:catalogue}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}l l l l l l l l@{}}
+\toprule
+\textbf{model} & $\gf(x)$ & $\gfi(y)$ & $D$ & $g(D)$ & \textbf{structure}
+& $0_{\gf}$ & $1_{\gf}$ \\
+\midrule
+harmonic & $1/x$ & $1/y$ & $(0,\infty)$ & $(0,\infty)$ & semigroup & -- & -- \\
+power $p$ & $x^{p}$ & $y^{1/p}$ & $[0,\infty)$ & $[0,\infty)$ & monoid & $0$ & $1$ \\
+cubic & $x^{3}$ & $\sqrt[3]{y}$ & $\mathbb{R}$ & $\mathbb{R}$ & group & $0$ & $1$ \\
+geometric & $\ln x$ & $e^{y}$ & $(0,\infty)$ & $\mathbb{R}$ & group & $1$ & $e$ \\
+logistic & $\ln\frac{x}{1-x}$ & $\dfrac{1}{1+e^{-y}}$ & $(0,1)$ & $\mathbb{R}$ & group & $0.5$ & $0.7311$ \\
+softplus & $\ln(e^{x}-1)$ & $\ln(e^{y}+1)$ & $(0,\infty)$ & $\mathbb{R}$ & group & $0.6931$ & $1.3133$ \\
+Lambert & $x+\ln x$ & $W(e^{y})$ & $(0,\infty)$ & $\mathbb{R}$ & group & $0.5671$ & $1$ \\
+relativistic & $\operatorname{artanh}\frac{x}{c}$ & $c\tanh y$
+& $(-c,c)$ & $\mathbb{R}$ & group & $0$ & $0.7616c$ \\
+Kepler & $x+k\sin x$ & numerically & $\mathbb{R}$ & $\mathbb{R}$ & group
+& $0$ & $0.5533$ \\
+Tsallis & $\ln(1+\varepsilon x)$ & $\dfrac{e^{y}-1}{\varepsilon}$
+& $(-\tfrac1\varepsilon,\infty)$ & $\mathbb{R}$ & group & $0$ & $3.4366$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Table \ref{tab:catalogue} shows that two models used in practice are weaker than
+usually assumed. The power arithmetic with $p=2$ describes root-mean-square
+values and kinetic energy. It is a monoid. It has no subtraction: $a\gsub b$
+exists only for $a\ge b$. The harmonic arithmetic describes equivalent
+resistance and focal length. It is a semigroup. It has no zero. The sentence
+``add zero resistance'' has no meaning in that arithmetic.
+
+\section{Models that are physical laws}
+
+In this section $\gop$ is not a modelling choice. It is the content of the law.
+
+\paragraph{Parallel resistance and focal length.}
+For the generator $\gf(x)=1/x$ we obtain $a\gop b=\dfrac{ab}{a+b}$. This is the
+formula for the equivalent resistance of two resistors in parallel and the
+formula for the focal length of two thin lenses. Check: $6\gop3=2.000000$ and
+$50\gop200=40.000000$.
+
+\paragraph{Root-mean-square and radiation.}
+For $\gf(x)=x^{2}$ we obtain $a\gop b=\sqrt{a^{2}+b^{2}}$. This is the
+root-mean-square of two uncorrelated waveforms. Example: $230\gop45=234.360833$
+volts. For $\gf(x)=x^{4}$ we obtain the Stefan--Boltzmann law in the form of a
+sum of fluxes: $800\gop1000=1089.617257$ kelvin. The value $1088.6$ quoted in
+some sources is wrong.
+
+\paragraph{Decibels.}
+For $\gf(L)=10^{L/10}$ we obtain
+$L_{1}\gop L_{2}=10\log_{10}\big(10^{L_{1}/10}+10^{L_{2}/10}\big)$.
+Two sources of $80$ dB give $83.010300$ dB, not $160$ dB.
+
+\paragraph{Composition of velocities.}
+For $\gf(v)=\operatorname{artanh}(v/c)$ we obtain
+\[
+v_{1}\gop v_{2}=\frac{v_{1}+v_{2}}{1+v_{1}v_{2}/c^{2}}.
+\]
+This is Einstein's formula \cite{einstein1905}. For $v_{1}=v_{2}=0.5c$ the result
+is $0.8c$. For $v_{1}=v_{2}=0.9c$ the result is $0.994475c$. The result never
+exceeds $c$, because $\tanh$ maps into $(-1,1)$. The structure is known as a
+gyrovector space \cite{ungar2008}.
+
+\paragraph{Pooling independent evidence.}
+For $\gf(p)=\ln\frac{p}{1-p}$ we obtain
+\[
+p_{1}\gop p_{2}=\frac{p_{1}p_{2}}{p_{1}p_{2}+(1-p_{1})(1-p_{2})}.
+\]
+This is the update of the odds for independent evidence in favour of an event.
+Example: $0.8\gop0.7=0.903226$. Two concordant independent witnesses raise the
+confidence, and the result stays in $(0,1)$.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Physical laws of the form \eqref{eq:base} and their numerical
+results.}
+\label{tab:laws}
+\begin{tabularx}{\textwidth}{@{}l l l X@{}}
+\toprule
+\textbf{law} & \textbf{generator} & \textbf{meaning of $\gop$} & \textbf{example} \\
+\midrule
+parallel resistance, focal length & $1/x$ & sum of conductances & $6\gop3=2$ \\
+root-mean-square & $x^{2}$ & sum of powers & $230\gop45=234.36$ \\
+Stefan--Boltzmann law & $x^{4}$ & sum of fluxes & $800\gop1000=1089.62$ \\
+sound level & $10^{L/10}$ & sum of intensities & $80\gop80=83.01$ \\
+velocity composition & $\operatorname{artanh}(v/c)$ & sum of rapidities & $0.5c\gop0.5c=0.8c$ \\
+independent evidence & $\ln\frac{p}{1-p}$ & sum of logits & $0.8\gop0.7=0.9032$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Two generators without an elementary inverse}
+
+\subsection{The Lambert generator}
+
+Let $\gf(x)=x+\ln x$ for $x>0$. The function is strictly increasing, so it is a
+bijection onto $\mathbb{R}$. Its inverse has the closed form
+$\gfi(y)=W(e^{y})$, where $W$ is the Lambert function \cite{corless1996}. The
+constants are $0_{\gf}=W(1)=\Omega=0.5671432904097838$ and $1_{\gf}=1$.
+
+The model has two regimes. For $a,b\ll1$ the logarithm dominates, so
+\[
+a\gop b=ab\,(1+a+b)+O\big((ab)^{2}\big).
+\]
+Measurement: for $a=b=0.01$ the relative deviation from the product is $0.0201$,
+that is $a+b$. For $a,b\gg1$ the identity term dominates, so $a\gop b\to a+b$.
+Measurement: the relative deviation from the sum falls below $1\%$ for $x>25.1$
+and below $0.1\%$ for $x>251$ (Figure \ref{fig:phase}).
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{loglogaxis}[
+  fgaaxis,
+  xlabel={$x$},
+  ylabel={result},
+  legend pos=south east,
+  xmin=1e-5, xmax=1e5, ymin=1e-6, ymax=1e7,
+]
+\addplot[very thick, blue!70!black] table[x=x,y=add]
+  {data/lambert_phase.dat};
+\addlegendentry{$0.8\gop x$}
+\addplot[thick, black!55, dashed, domain=1:1e5] {0.8+x};
+\addlegendentry{$0.8+x$ (for $x>1$)}
+\addplot[thick, red!70!black, dotted, mark=none, domain=1e-5:1] {0.8*x};
+\addlegendentry{$0.8\,x$ (for $x<1$)}
+\end{loglogaxis}
+\end{tikzpicture}
+\caption{The Lambert arithmetic with $a=0.8$. For $x\ll1$ the operation
+coincides with multiplication. For $x\gg1$ it coincides with addition. The
+transition is smooth and has no threshold. Data from
+\texttt{paper/data/lambert\_phase.dat}.}
+\label{fig:phase}
+\end{figure}
+
+The inverse $\gfi$ needs care. The closed form $W(e^{y})$ fails numerically. The
+expression $e^{y}$ exceeds the double-precision range for $y>709.78$, and $W$ is
+then out of reach. The correct solution does not form $e^{y}$. It solves
+$x+\ln x=y$ directly, in the logarithmic domain, by Newton iteration started at
+$y-\ln y$. Table \ref{tab:lambert} compares the two ways.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Computing $\gfi(y)$ for the Lambert generator. The column ``closed
+form'' is $W(e^{y})$ in IEEE-754 double precision. The column ``asymptotic'' is
+$y-\ln y+\ln y/y$, the approximation used in the source code.}
+\label{tab:lambert}
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+$y$ & closed form $W(e^{y})$ & solve in $\ln$ domain & asymptotic error \\
+\midrule
+$10$      & $7.9294200950$  & $7.9294200950$  & $2.2\cdot10^{-4}$ \\
+$100$     & $95.4414866456$ & $95.4414866456$ & $6.3\cdot10^{-6}$ \\
+$500$     & $493.7978737290$& $493.7978737290$& $1.1\cdot10^{-7}$ \\
+$700$     & $693.4583088790$& $693.4583088790$& $4.4\cdot10^{-8}$ \\
+$710$     & overflow        & $703.4440117120$& $4.2\cdot10^{-8}$ \\
+$10^{4}$  & overflow        & $9990.7905809943$ & $3.3\cdot10^{-11}$ \\
+$10^{6}$  & overflow        & $999986.1845032576$ & $1.2\cdot10^{-16}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two conclusions. First, the asymptotic expansion has an error of
+$2.2\cdot10^{-4}$ at $y=10$ and $1.1\cdot10^{-7}$ at $y=500$. It therefore does
+not give machine accuracy, contrary to a claim often repeated. Second, the
+overflow is not a defect of $W$. It is a consequence of evaluating $e^{y}$ where
+it suffices to solve the original equation.
+
+\subsection{The Kepler generator}
+
+Let $\gf(x)=x+k\sin x$ with $k\in(0,1)$. The derivative $\gf'(x)=1+k\cos x$ is
+positive, so $\gf$ is a bijection $\mathbb{R}\to\mathbb{R}$. The inverse has no
+closed form. We compute it by Newton iteration started at $y$; the number of
+iterations to accuracy $10^{-15}$ is between three and five. The function is
+known as Kepler's equation in astronomy.
+
+The constants of this model differ from those quoted in secondary sources.
+$0_{\gf}=0$, but $1_{\gf}=0.553315638360866$, not $1$. Check:
+$\gf(1)=1.715250337086712$, so $\gf(1)\neq1$. Earlier tables that give
+$1_{\gf}=1$ are wrong.
+
+\section{The synergy operator: a negative result}
+
+This section studies the modification in which the sum depends on the
+environment.
+
+\begin{definition}[synergy operator]
+\label{def:synergy}
+Let $\gf\colon D\to\mathbb{R}$ be a bijection and let $s\ge0$ be a parameter. We
+define
+\begin{equation}
+\label{eq:synergy}
+a\gop_{s}b=\gf^{-1}\!\left(\Big(\sqrt{\gf(a)+\gf(b)}+\sqrt{s}\Big)^{2}-s\right).
+\end{equation}
+Equivalently $a\gop_{s}b=\gf^{-1}\big(X+2\sqrt{sX}\big)$ with
+$X=\gf(a)+\gf(b)$ and $X\ge0$.
+\end{definition}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Measured violations for \eqref{eq:synergy} with the Lambert
+generator, $a=1.3$, $b=1.7$, $c=2.3$. Second column: relative difference between
+$(a\gop_s b)\gop_s c$ and $a\gop_s(b\gop_s c)$. Third column:
+$|a\gop_s 0_{\gf}-a|$.}
+\label{tab:synergy}
+\begin{tabular}{@{}rrr@{}}
+\toprule
+$s$ & associativity violation & neutral-element violation \\
+\midrule
+$0$     & $0$            & $0$ \\
+$0.01$  & $1.07\cdot10^{-2}$ & $0.145$ \\
+$0.10$  & $2.83\cdot10^{-2}$ & $0.478$ \\
+$0.50$  & $4.82\cdot10^{-2}$ & $1.139$ \\
+$1.00$  & $5.75\cdot10^{-2}$ & $1.673$ \\
+$2.00$  & $6.64\cdot10^{-2}$ & $2.471$ \\
+$5.00$  & $7.64\cdot10^{-2}$ & $4.156$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{loglogaxis}[
+  fgaaxis,
+  xlabel={$s$},
+  ylabel={violation},
+  legend pos=north west,
+  xmin=0.008, xmax=6, ymin=5e-3, ymax=1e1,
+]
+\addplot[very thick, blue!70!black, mark=*, mark size=2pt]
+  table[x=s,y=assoc_defect] {data/synergy_assoc.dat};
+\addlegendentry{associativity violation}
+\addplot[very thick, red!70!black, mark=square*, mark size=2pt]
+  table[x=s,y=identity_defect] {data/synergy_assoc.dat};
+\addlegendentry{neutral-element violation}
+\end{loglogaxis}
+\end{tikzpicture}
+\caption{The violations grow like $\sqrt{s}$. The vertical axis is logarithmic.
+As $s\to0$ the operator returns to the arithmetic \eqref{eq:base}.}
+\label{fig:synergy}
+\end{figure}
+
+\begin{proposition}
+\label{prop:synergy}
+For $s>0$ the operation \eqref{eq:synergy} is commutative, is not associative,
+and has no neutral element in $D$.
+\end{proposition}
+
+\begin{proof}
+Commutativity follows from the symmetry of $X$. For $a=\gf^{-1}(x)$ and
+$b=\gf^{-1}(0)$ we obtain $a\gop_{s}b=\gf^{-1}\big(x+2\sqrt{sx}\big)\neq a$ for
+$x>0$, so $0_{\gf}$ is not neutral. For associativity a numerical
+counterexample suffices: with the Lambert generator, $a=1.3$, $b=1.7$, $c=2.3$
+and $s=0.5$ the two bracketings give $11.626886$ and $12.215317$; the relative
+difference is $4.8\cdot10^{-2}$.
+\end{proof}
+
+The conclusion is this. Operator \eqref{eq:synergy} is not an arithmetic. It is
+not an isomorphism of $(\mathbb{R},+)$, it has no neutral element, and it
+depends on the order of composition. It can be used as a one-step nonlinear
+update in a control loop. It cannot support the claims that it ``changes the
+arithmetic'', that it ``violates conservation of energy'', or that ``the sum of
+all doses'' is well defined. The last sentence matters most: without
+associativity there is no order-independent result for many doses.
+
+One further observation. The term $2\sqrt{sX}$ is clipped to zero when $X<0$.
+For the Lambert generator the condition $X<0$ corresponds to $a<0.5671$. The
+operator then acts as the identity. This asymmetry is an artefact of the
+clipping, not a physical property.
+
+\section{Claims that the scheme does not support}
+
+The list below collects statements that appear in expositions of scheme
+\eqref{eq:base} and do not follow from it.
+
+\begin{enumerate}[leftmargin=1.6em]
+  \item \textbf{Kepler's new one equals $1$.} False. $1_{\gf}=0.5533$ for
+        $k=0.85$, and the value depends on $k$.
+  \item \textbf{Zero in the harmonic arithmetic.} It does not exist in
+        $(0,\infty)$; $0_{\gf}=\infty$ lies outside the domain.
+  \item \textbf{Subtraction in the power arithmetic.} It exists only for
+        $a\ge b$; for $a<b$ the result is complex.
+  \item \textbf{Removal of the black-hole singularity by a logarithmic
+        substitution.} A change of coordinates does not remove the Kretschmann
+        invariant, which for the Schwarzschild metric equals
+        $48G^{2}M^{2}/(c^{4}r^{6})$ and diverges at $r=0$ in every frame. The
+        tortoise coordinate $r^{*}=r+r_{s}\ln|r/r_{s}-1|$ is a standard tool for
+        horizon analysis, not a model of the interior.
+  \item \textbf{Warp drive as a consequence of the arithmetic.} The Alcubierre
+        metric requires negative energy density. That is an energy-cost
+        hypothesis, not a result of the scheme.
+  \item \textbf{Necessity of five descriptive elements.} The number of elements
+        is an editorial choice. No theorem forces it.
+  \item \textbf{Novelty of the scheme.} The scheme is from 1972
+        \cite{grossman1972}. What can be new is the choice of $\gf$, the domain
+        of application and the implementation.
+\end{enumerate}
+
+\section{Conclusions}
+
+Scheme \eqref{eq:base} is a language, not a theory. Its value has three parts.
+First, it gives one notation for laws that look different. Second, it carries
+ready theorems of algebra into a new context without proof. Third, it exposes
+limits: monoid, semigroup and missing inverses are information about the model,
+not about the subject.
+
+The synergy term is useful as a controller. It is not an arithmetic. Calling it
+an arithmetic leads to false statements about energy conservation and about
+independence from the order of composition.
+
+Further work has three directions. First: verification of the models on measured
+data rather than on chosen numbers. Second: an implementation of a controller
+based on the saturation generator, compared with a PID controller on the same
+plant. Third: publication of code and data together with the text, so that every
+number in the tables can be reproduced by one command.
+
+{\footnotesize
+\setlength{\itemsep}{1pt}
+\begin{thebibliography}{9}
+\bibitem{grossman1972} M. Grossman, R. Katz.
+\emph{Non-Newtonian Calculus}. Lee Press, Pigeon Cove, 1972.
+\bibitem{kolmogorov1930} A. N. Kolmogorov.
+Sur la notion de la moyenne. \emph{Atti Accad. Naz. Lincei} 12 (1930), 388--391.
+\bibitem{nagumo1930} M. Nagumo.
+Über eine Klasse von Mittelbildungen mit Anwendungen auf die
+Determinantentheorie. \emph{Tôhoku Math. J.} 31 (1930), 71--79.
+\bibitem{aczel1966} J. Aczél.
+\emph{Lectures on Functional Equations and Their Applications}.
+Academic Press, New York, 1966.
+\bibitem{einstein1905} A. Einstein.
+Zur Elektrodynamik bewegter Körper. \emph{Ann. Phys.} 17 (1905), 891--921.
+\bibitem{ungar2008} A. A. Ungar.
+\emph{Analytic Hyperbolic Geometry and Albert Einstein's Special Theory of
+Relativity}. World Scientific, 2008.
+\bibitem{tsallis1988} C. Tsallis.
+Possible generalization of Boltzmann--Gibbs statistics.
+\emph{J. Stat. Phys.} 52 (1988), 479--487.
+\bibitem{corless1996} R. M. Corless, G. H. Gonnet, D. E. G. Hare, D. J. Jeffrey,
+D. E. Knuth. On the Lambert $W$ function.
+\emph{Adv. Comput. Math.} 5 (1996), 329--359.
+\bibitem{czachor2016} M. Czachor.
+Relativity of arithmetic as a fundamental symmetry of physics.
+\emph{Quantum Stud. Math. Found.} 3 (2016), 123--133.
+\end{thebibliography}
+}
+
+\end{document}

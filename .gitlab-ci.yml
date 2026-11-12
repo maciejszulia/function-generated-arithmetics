@@ -1,0 +1,33 @@
+stages:
+  - verify
+  - paper
+
+verify:
+  stage: verify
+  image: python:3.12-slim
+  script:
+    - pip install --no-cache-dir -r requirements.txt
+    - python scripts/verify.py
+    - python -m pytest -q
+  artifacts:
+    paths:
+      - results.json
+    expire_in: 30 days
+
+paper:
+  stage: paper
+  image: texlive/texlive:latest
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq python3 python3-numpy >/dev/null
+  script:
+    - python3 scripts/verify.py
+    - cd paper
+    - pdflatex -interaction=nonstopmode paper_pl.tex >/dev/null
+    - pdflatex -interaction=nonstopmode paper_pl.tex >/dev/null
+    - pdflatex -interaction=nonstopmode paper_en.tex >/dev/null
+    - pdflatex -interaction=nonstopmode paper_en.tex >/dev/null
+  artifacts:
+    paths:
+      - paper/paper_pl.pdf
+      - paper/paper_en.pdf
+    expire_in: 30 days

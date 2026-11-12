@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Verify every number in the paper
+        run: python scripts/verify.py
+      - name: Unit tests
+        run: python -m pytest -q
+      - uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: results.json
+
+  paper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy && python scripts/verify.py
+      - name: Build Polish paper
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: paper_pl.tex
+          working_directory: paper
+      - name: Build English paper
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: paper_en.tex
+          working_directory: paper
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pdf
+          path: |
+            paper/paper_pl.pdf
+            paper/paper_en.pdf

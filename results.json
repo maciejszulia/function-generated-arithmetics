@@ -1,0 +1,346 @@
+{
+  "laws": [
+    {
+      "name": "power p=2",
+      "domain": "[0, inf)",
+      "structure": "monoid",
+      "zero": 0.0,
+      "one": 1.0,
+      "chart_associativity": 5.566372917579697e-16,
+      "coord_associativity": 3.1444975119715106e-16,
+      "neutral_element": 0.0,
+      "inverse": NaN,
+      "inverse_chart": NaN,
+      "distributivity": 3.4129249096636547e-16
+    },
+    {
+      "name": "cubic p=3",
+      "domain": "R",
+      "structure": "group",
+      "zero": 0.0,
+      "one": 1.0,
+      "chart_associativity": 1.3148098486654238e-13,
+      "coord_associativity": 4.381573748135014e-14,
+      "neutral_element": 4.0271333040091024e-16,
+      "inverse": 6.574812896825816e-05,
+      "inverse_chart": 1.1590858898261112e-15,
+      "distributivity": 3.7898409509879685e-15
+    },
+    {
+      "name": "geometric (log)",
+      "domain": "(0, inf)",
+      "structure": "group",
+      "zero": 1.0,
+      "one": 2.718281828459045,
+      "chart_associativity": 2.654875488658857e-16,
+      "coord_associativity": 1.8813702319157168e-15,
+      "neutral_element": 2.818928588822244e-16,
+      "inverse": 1.1102230246251565e-16,
+      "inverse_chart": 1.1102230246251565e-16,
+      "distributivity": 3.53540256539481e-15
+    },
+    {
+      "name": "logistic (logit)",
+      "domain": "(0, 1)",
+      "structure": "group",
+      "zero": 0.5,
+      "one": 0.7310585786300049,
+      "chart_associativity": 1.3017379409772778e-14,
+      "coord_associativity": 2.886579864025407e-15,
+      "neutral_element": 1.1102230246251565e-16,
+      "inverse": 8.881784197001252e-16,
+      "inverse_chart": 1.112444908647381e-15,
+      "distributivity": 2.453592884421596e-14
+    },
+    {
+      "name": "softplus",
+      "domain": "(0, inf)",
+      "structure": "group",
+      "zero": 0.6931471805599453,
+      "one": 1.3132616875182228,
+      "chart_associativity": 2.640687915950089e-16,
+      "coord_associativity": 2.640687915949887e-16,
+      "neutral_element": 2.0667239054744272e-16,
+      "inverse": 2.220446049250313e-16,
+      "inverse_chart": 2.2204460492503136e-16,
+      "distributivity": 7.902363873954528e-16
+    },
+    {
+      "name": "Lambert (x + ln x)",
+      "domain": "(0, inf)",
+      "structure": "group",
+      "zero": 0.5671432904097838,
+      "one": 1.0,
+      "chart_associativity": 4.2099724203211273e-16,
+      "coord_associativity": 4.683456256194294e-16,
+      "neutral_element": 2.619238792243893e-16,
+      "inverse": 1.3322676295501878e-15,
+      "inverse_chart": 3.3306690738754696e-16,
+      "distributivity": 4.129995200873419e-16
+    },
+    {
+      "name": "relativistic c=1",
+      "domain": "(-c, c)",
+      "structure": "group",
+      "zero": 0.0,
+      "one": 0.7615941559557649,
+      "chart_associativity": 4.9044114066437e-15,
+      "coord_associativity": 8.881784197001252e-16,
+      "neutral_element": 1.1102230246251565e-16,
+      "inverse": 2.220446049250313e-16,
+      "inverse_chart": 2.0297231599727327e-16,
+      "distributivity": 2.55351295663786e-15
+    },
+    {
+      "name": "Kepler k=0.85",
+      "domain": "R",
+      "structure": "group",
+      "zero": 0.0,
+      "one": 0.553315638360866,
+      "chart_associativity": 1.1102230246251565e-15,
+      "coord_associativity": 3.0100092352108518e-15,
+      "neutral_element": 8.556814677521193e-16,
+      "inverse": 2.400482215405744e-16,
+      "inverse_chart": 2.0379482629404854e-16,
+      "distributivity": 3.32674712519112e-15
+    },
+    {
+      "name": "Tsallis q=0.5",
+      "domain": "(-2, inf)",
+      "structure": "group",
+      "zero": 0.0,
+      "one": 3.43656365691809,
+      "chart_associativity": 3.12800504805567e-16,
+      "coord_associativity": 1.092325239542017e-15,
+      "neutral_element": 3.632384640966408e-16,
+      "inverse": 1.7763568394002497e-15,
+      "inverse_chart": 3.7147036852017675e-16,
+      "distributivity": 1.9124266865990964e-15
+    },
+    {
+      "name": "harmonic",
+      "domain": "(0, inf)",
+      "structure": "semigroup",
+      "zero": NaN,
+      "one": NaN,
+      "chart_associativity": 4.0416706616708303e-16,
+      "coord_associativity": 3.968550159975131e-16,
+      "neutral_element": NaN,
+      "inverse": NaN,
+      "inverse_chart": NaN,
+      "distributivity": 4.138289113328135e-16
+    }
+  ],
+  "constants": {
+    "omega_W1": 0.5671432904097838,
+    "omega_textbook": 0.5671432904097838,
+    "lambert_one": 1.0,
+    "kepler_zero": 0.0,
+    "kepler_one": 0.553315638360866,
+    "kepler_g_of_one": 1.715250337086712,
+    "logistic_zero": 0.5,
+    "softplus_zero": 0.6931471805599453,
+    "softplus_one": 1.3132616875182228,
+    "relativistic_one": 0.7615941559557649,
+    "tsallis_zero": 0.0
+  },
+  "lambert": [
+    {
+      "y": 1.0,
+      "closed_form": 1.0,
+      "log_domain": 1.0,
+      "asymptotic": 1.0,
+      "err_asymptotic": 0.0
+    },
+    {
+      "y": 10.0,
+      "closed_form": 7.929420095019697,
+      "log_domain": 7.929420095019697,
+      "asymptotic": 7.927673416305359,
+      "err_asymptotic": 0.0002202782414612903
+    },
+    {
+      "y": 100.0,
+      "closed_form": 95.44148664557584,
+      "log_domain": 95.44148664557584,
+      "asymptotic": 95.4408815158718,
+      "err_asymptotic": 6.34032143996915e-06
+    },
+    {
+      "y": 500.0,
+      "closed_form": 493.7978737290337,
+      "log_domain": 493.7978737290337,
+      "asymptotic": 493.7978211177746,
+      "err_asymptotic": 1.0654411833727828e-07
+    },
+    {
+      "y": 700.0,
+      "closed_form": 693.4583088790255,
+      "log_domain": 693.4583088790255,
+      "asymptotic": 693.4582783511496,
+      "err_asymptotic": 4.402265498571803e-08
+    },
+    {
+      "y": 709.0,
+      "closed_form": 702.4454322782813,
+      "log_domain": 702.4454322782813,
+      "asymptotic": 702.4454023797111,
+      "err_asymptotic": 4.256354834892448e-08
+    },
+    {
+      "y": 710.0,
+      "closed_form": Infinity,
+      "log_domain": 703.4440117119545,
+      "asymptotic": 703.443981882035,
+      "err_asymptotic": 4.240553481135673e-08
+    },
+    {
+      "y": 800.0,
+      "closed_form": Infinity,
+      "log_domain": 793.323768578489,
+      "asymptotic": 793.3237440369916,
+      "err_asymptotic": 3.09350335488275e-08
+    },
+    {
+      "y": 10000.0,
+      "closed_form": Infinity,
+      "log_domain": 9990.790580994251,
+      "asymptotic": 9990.790580662062,
+      "err_asymptotic": 3.32495510891488e-11
+    },
+    {
+      "y": 1000000.0,
+      "closed_form": Infinity,
+      "log_domain": 999986.1845032576,
+      "asymptotic": 999986.1845032575,
+      "err_asymptotic": 1.1641693018465453e-16
+    }
+  ],
+  "synergy": [
+    {
+      "s": 0.0,
+      "a": 1.3,
+      "assoc_defect": 0.0,
+      "identity_defect": 0.0,
+      "left": 5.264849145597482,
+      "right": 5.264849145597482
+    },
+    {
+      "s": 0.0,
+      "a": 0.4,
+      "assoc_defect": 0.0,
+      "identity_defect": 0.0,
+      "left": 3.5736571569685496,
+      "right": 3.5736571569685496
+    },
+    {
+      "s": 0.01,
+      "a": 1.3,
+      "assoc_defect": 0.010719444300396777,
+      "identity_defect": 0.14455328024223335,
+      "left": 6.055403232157452,
+      "right": 6.121017134391334
+    },
+    {
+      "s": 0.01,
+      "a": 0.4,
+      "assoc_defect": 0.039422055070920635,
+      "identity_defect": 0.0,
+      "left": 4.140389179566275,
+      "right": 4.310310476545414
+    },
+    {
+      "s": 0.1,
+      "a": 1.3,
+      "assoc_defect": 0.0282866609794118,
+      "identity_defect": 0.4776225273588526,
+      "left": 7.897495366343158,
+      "right": 8.127392152816613
+    },
+    {
+      "s": 0.1,
+      "a": 0.4,
+      "assoc_defect": 0.10057813480464867,
+      "identity_defect": 0.0,
+      "left": 5.480786055098816,
+      "right": 6.0936766907578
+    },
+    {
+      "s": 0.5,
+      "a": 1.3,
+      "assoc_defect": 0.04817152785805037,
+      "identity_defect": 1.1386215081659892,
+      "left": 11.626886383877022,
+      "right": 12.215316860308274
+    },
+    {
+      "s": 0.5,
+      "a": 0.4,
+      "assoc_defect": 0.16372108207765204,
+      "identity_defect": 0.0,
+      "left": 8.249113644518983,
+      "right": 9.864069830928045
+    },
+    {
+      "s": 1.0,
+      "a": 1.3,
+      "assoc_defect": 0.05751607314002176,
+      "identity_defect": 1.672763636269002,
+      "left": 14.711460780149826,
+      "right": 15.609243150875994
+    },
+    {
+      "s": 1.0,
+      "a": 0.4,
+      "assoc_defect": 0.1908873534743488,
+      "identity_defect": 0.0,
+      "left": 10.572412987308153,
+      "right": 13.066676231926845
+    },
+    {
+      "s": 2.0,
+      "a": 1.3,
+      "assoc_defect": 0.06639911258525284,
+      "identity_defect": 2.4705292291481067,
+      "left": 19.44080058088028,
+      "right": 20.823459834870324
+    },
+    {
+      "s": 2.0,
+      "a": 0.4,
+      "assoc_defect": 0.2150917347728267,
+      "identity_defect": 0.0,
+      "left": 14.170156137165499,
+      "right": 18.05326401176866
+    },
+    {
+      "s": 5.0,
+      "a": 1.3,
+      "assoc_defect": 0.0764319037336555,
+      "identity_defect": 4.1556412303609,
+      "left": 29.92080114778893,
+      "right": 32.39696268065996
+    },
+    {
+      "s": 5.0,
+      "a": 0.4,
+      "assoc_defect": 0.24035588177780268,
+      "identity_defect": 0.0,
+      "left": 22.231819675736453,
+      "right": 29.26609861439565
+    }
+  ],
+  "examples": {
+    "rms_230_45": 234.3608329051593,
+    "stefan_boltzmann_800_1000": 1089.6172568257473,
+    "parallel_6_3": 2.0,
+    "focal_50_200": 40.0,
+    "lambert_08_12": 0.19768307491174963,
+    "lambert_08_1e6": 1000000.5768558718,
+    "logistic_08_07": 0.9032258064516129,
+    "relativistic_05_05": 0.8,
+    "relativistic_09_09": 0.994475138121547,
+    "decibels_80_80": 83.01029995663981,
+    "kepler_one": 0.553315638360866
+  }
+}

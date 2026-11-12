@@ -1,0 +1,532 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[polish]{fga}
+
+\title{\textbf{Arytmetyki generowane funkcją}\\[2pt]
+\large Katalog, klasyfikacja strukturalna i granice numeryczne schematu
+$a \gop b = \gf^{-1}\big(\gf(a)+\gf(b)\big)$}
+\author{Maciej Szulia}
+\date{listopad 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Praca bada rodzinę działań postaci $a\gop b=\gf^{-1}\big(\gf(a)+\gf(b)\big)$,
+gdzie $\gf$ jest bijekcją. Pokazujemy, że każde takie działanie jest
+przeniesieniem struktury grupy $(\mathbb{R},+)$ przez $\gf$. Z tego faktu
+wynikają automatycznie łączność, przemienność, element neutralny, elementy
+przeciwne i rozdzielność indukowanego mnożenia. Podajemy katalog dziesięciu
+generatorów z dokładnymi wzorami oraz klasyfikujemy indukowaną strukturę jako
+grupę, monoid albo półgrupę. Klasyfikacja zależy od obrazu $\gf$, a nie od
+postaci wzoru. Dla dwóch generatorów bez elementarnej odwrotności (Lamberta
+i Keplera) mierzymy koszt numeryczny. Dla operatora synergicznego z członem
+$2\sqrt{sX}$ dowodzimy, że przy $s>0$ nie ma elementu neutralnego i nie jest
+łączny, więc nie jest arytmetyką w sensie Grossmana--Katza; podajemy zmierzoną
+wielkość tych naruszeń. Na końcu zestawiamy prawa fizyki, które mają tę postać
+dosłownie, oraz listę twierdzeń, których schemat nie uzasadnia.
+
+\smallskip
+\noindent\textbf{Słowa kluczowe:} arytmetyka nie-Newtonowska; przeniesienie
+struktury; średnia Kołmogorowa--Nagumo; funkcja $W$ Lamberta; weryfikacja
+numeryczna.
+\end{abstract}
+
+\section{Wprowadzenie}
+
+Wiele praw składania w fizyce ma wspólną postać. Najpierw sumuje się wielkość
+zachowaną, potem odczytuje się wielkość mierzoną. Opór dwóch oporników
+połączonych równolegle nie jest sumą oporów. Ogniskowa układu dwóch soczewek nie
+jest sumą ogniskowych. Wartość skuteczna dwóch napięć nie jest sumą wartości
+skutecznych. W każdym z tych przypadków suma zachodzi w innej skali.
+
+Schemat, który to opisuje, jest jeden:
+\begin{equation}
+\label{eq:base}
+a\gop b=\gf^{-1}\big(\gf(a)+\gf(b)\big).
+\end{equation}
+Funkcja $\gf$ jest bijekcją. Nazywamy ją generatorem. Działanie $\gop$ jest
+sumą w skali $\gf$.
+
+Praca odpowiada na trzy pytania.
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+  \item Co w schemacie \eqref{eq:base} jest twierdzeniem, a co jest wyborem?
+  \item Kiedy indukowana struktura jest grupą, a kiedy tylko monoidem albo
+        półgrupą?
+  \item Co się dzieje, gdy do sumy dodamy człon zależny od otoczenia, czyli
+        tak zwany człon synergiczny?
+\end{enumerate}
+
+Odpowiedzi są w dużej części negatywne. Schemat \eqref{eq:base} nie tworzy
+nowej arytmetyki. Przenosi istniejącą. Człon synergiczny wyprowadza poza
+algebrę grup. Te dwa fakty nie przekreślają schematu. Ustawiają go w miejscu,
+w którym jest użyteczny: jako jednolita notacja i jako gotowy zestaw wzorów.
+
+\smallskip
+\noindent
+\textit{Konwencja językowa.} Tekst używa polszczyzny kontrolowanej. Jedno
+pojęcie ma jeden termin. Zdania są krótkie. Nie używamy metafor.
+
+\section{Schemat i twierdzenie o przeniesieniu}
+
+\begin{definition}[arytmetyka generowana funkcją]
+\label{def:arith}
+Niech $D\subseteq\mathbb{R}$ będzie zbiorem, a $\gf\colon D\to\mathbb{R}$
+bijekcją. Dla $a,b\in D$ definiujemy
+\[
+a\gop b=\gf^{-1}\big(\gf(a)+\gf(b)\big),\qquad
+a\gsub b=\gf^{-1}\big(\gf(a)-\gf(b)\big).
+\]
+Mnożenie przez liczbę $n\in\mathbb{R}$ oraz dzielenie przez $n\neq0$
+definiujemy jako
+\[
+n\gscale a=\gf^{-1}\big(n\,\gf(a)\big),\qquad
+a\gdiv n=\gf^{-1}\!\left(\frac{\gf(a)}{n}\right).
+\]
+Pełne mnożenie i pełne dzielenie dwóch elementów to
+\[
+a\gmul b=\gf^{-1}\big(\gf(a)\,\gf(b)\big),\qquad
+a\gdiv_{\!f} b=\gf^{-1}\!\left(\frac{\gf(a)}{\gf(b)}\right).
+\]
+\end{definition}
+
+\begin{theorem}[przeniesienie struktury]
+\label{thm:transport}
+Struktura $(D,\gop)$ jest grupą abelową. Odwzorowanie $\gf$ jest izomorfizmem
+grup $(D,\gop)\to(\mathbb{R},+)$.
+\end{theorem}
+
+\begin{proof}
+$\gf$ jest bijekcją, więc ma odwrotność. Dla $a,b,c\in D$:
+$\gf\big((a\gop b)\gop c\big)=\gf(a)+\gf(b)+\gf(c)
+=\gf\big(a\gop(b\gop c)\big)$. Przemienność wynika z przemienności dodawania.
+Elementem neutralnym jest $0_{\gf}=\gf^{-1}(0)$, bo
+$\gf(a\gop 0_{\gf})=\gf(a)$. Elementem przeciwnym do $a$ jest
+$\gsub a=\gf^{-1}\big(-\gf(a)\big)$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:automatic}
+Następujące własności zachodzą dla każdego generatora i nie wymagają dowodu
+odrębnego: łączność, przemienność, istnienie $0_{\gf}$, istnienie elementów
+przeciwnych, rozdzielność $\gmul$ względem $\gop$, łączność $\gmul$, wzór na
+potęgę $a^{\gmul n}=\gf^{-1}\big(\gf(a)^{n}\big)$ oraz wzór na średnią
+\[
+M_{\gf}(a_{1},\dots,a_{n})=\gf^{-1}\!\left(\frac{1}{n}\sum_{k=1}^{n}\gf(a_{k})\right).
+\]
+\end{corollary}
+
+Wniosek \ref{cor:automatic} jest znany. Średnia $M_{\gf}$ to średnia
+quasi-arytmetyczna Kołmogorowa i Nagumo \cite{kolmogorov1930,nagumo1930}.
+Rodzinę działań \eqref{eq:base} opisali Grossman i Katz \cite{grossman1972}
+pod nazwą rachunku nie-Newtonowskiego. Ten sam schemat jest standardowym
+przeniesieniem struktury w algebrze \cite{aczel1966}. Wniosek praktyczny jest
+następujący. Zdanie \enquote{odkryłem nową arytmetykę} znaczy w tym języku
+\enquote{wybrałem nową funkcję $\gf$}. Treścią jest wybór $\gf$, nie wzór
+\eqref{eq:base}.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Co wynika z twierdzenia \ref{thm:transport}, a co jest wyborem
+modelu.}
+\label{tab:automatic}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\textbf{Status} & \textbf{Element} \\
+\midrule
+twierdzenie & łączność, przemienność, $0_{\gf}$, elementy przeciwne,
+rozdzielność, wzory na potęgę i średnią \\
+wybór & funkcja $\gf$, dziedzina $D$, jednostka i znak wielkości mierzonej \\
+osobne twierdzenie & istnienie odwrotności $\gfi$ w postaci zamkniętej,
+stabilność numeryczna, zachowanie graniczne przy $x\to\partial D$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Klasyfikacja: grupa, monoid, półgrupa}
+
+Twierdzenie \ref{thm:transport} zakłada, że $\gf$ odwzorowuje $D$ na całe
+$\mathbb{R}$. Ten warunek często nie zachodzi. Opór elektryczny jest dodatni.
+Prawdopodobieństwo leży w przedziale $(0,1)$. Temperatura bezwzględna jest
+nieujemna. Obraz generatora jest wtedy podzbiorem $\mathbb{R}$, a indukowana
+struktura jest słabsza. Typ struktury zależy wyłącznie od obrazu $\gf$.
+
+\begin{proposition}
+\label{prop:classification}
+Niech $\gf\colon D\to\mathbb{R}$ będzie bijekcją na swój obraz $g(D)$.
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+  \item Jeśli $g(D)=\mathbb{R}$, to $(D,\gop)$ jest grupą.
+  \item Jeśli $g(D)=[0,\infty)$, to $(D,\gop)$ jest monoidem: istnieje
+        $0_{\gf}$, nie istnieją elementy przeciwne.
+  \item Jeśli $g(D)=(0,\infty)$, to $(D,\gop)$ jest półgrupą: nie istnieje
+        $0_{\gf}$ w $D$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) to twierdzenie \ref{thm:transport}. (b) $0\in g(D)$, więc $0_{\gf}$ istnieje.
+Dla $a\neq0_{\gf}$ element $-\gf(a)$ jest ujemny, więc nie należy do $g(D)$;
+element przeciwny nie istnieje. (c) $0\notin g(D)$, więc $\gfi(0)$ nie istnieje
+w $D$; działanie nie ma elementu neutralnego.
+\end{proof}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Katalog generatorów. Dla każdego wiersza podano dokładną postać
+$\gf$, dokładną postać $\gfi$, dziedzinę, obraz, typ struktury oraz stałe
+$0_{\gf}$ i $1_{\gf}$. Wartości liczbowe policzono skryptem
+\texttt{scripts/verify.py}.}
+\label{tab:catalogue}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}l l l l l l l l@{}}
+\toprule
+\textbf{model} & $\gf(x)$ & $\gfi(y)$ & $D$ & $g(D)$ & \textbf{struktura}
+& $0_{\gf}$ & $1_{\gf}$ \\
+\midrule
+harmoniczny & $1/x$ & $1/y$ & $(0,\infty)$ & $(0,\infty)$ & półgrupa & -- & -- \\
+potęgowy $p$ & $x^{p}$ & $y^{1/p}$ & $[0,\infty)$ & $[0,\infty)$ & monoid & $0$ & $1$ \\
+sześcienny & $x^{3}$ & $\sqrt[3]{y}$ & $\mathbb{R}$ & $\mathbb{R}$ & grupa & $0$ & $1$ \\
+geometryczny & $\ln x$ & $e^{y}$ & $(0,\infty)$ & $\mathbb{R}$ & grupa & $1$ & $e$ \\
+logistyczny & $\ln\frac{x}{1-x}$ & $\dfrac{1}{1+e^{-y}}$ & $(0,1)$ & $\mathbb{R}$ & grupa & $0.5$ & $0.7311$ \\
+softplus & $\ln(e^{x}-1)$ & $\ln(e^{y}+1)$ & $(0,\infty)$ & $\mathbb{R}$ & grupa & $0.6931$ & $1.3133$ \\
+Lamberta & $x+\ln x$ & $W(e^{y})$ & $(0,\infty)$ & $\mathbb{R}$ & grupa & $0.5671$ & $1$ \\
+relatywistyczny & $\operatorname{artanh}\frac{x}{c}$ & $c\tanh y$
+& $(-c,c)$ & $\mathbb{R}$ & grupa & $0$ & $0.7616c$ \\
+Keplera & $x+k\sin x$ & numerycznie & $\mathbb{R}$ & $\mathbb{R}$ & grupa
+& $0$ & $0.5533$ \\
+Tsallisa & $\ln(1+\varepsilon x)$ & $\dfrac{e^{y}-1}{\varepsilon}$
+& $(-\tfrac1\varepsilon,\infty)$ & $\mathbb{R}$ & grupa & $0$ & $3.4366$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Tabela \ref{tab:catalogue} pokazuje, że dwa modele często używane w praktyce są
+słabsze, niż się zakłada. Arytmetyka potęgowa z $p=2$ opisuje wartość
+skuteczną i energię kinetyczną. Jest monoidem. Nie ma w niej odejmowania:
+$a\gsub b$ istnieje tylko dla $a\ge b$. Arytmetyka harmoniczna opisuje opór
+zastępczy i ogniskową. Jest półgrupą. Nie ma w niej zera. Zdanie
+\enquote{dodać zero oporu} nie ma w tej arytmetyce sensu.
+
+\section{Modele, które są prawami fizyki}
+
+W tej sekcji $\gop$ nie jest wyborem modelu. Jest treścią prawa.
+
+\paragraph{Opór równoległy i ogniskowa.}
+Dla generatora $\gf(x)=1/x$ otrzymujemy
+$a\gop b=\dfrac{ab}{a+b}$. To wzór na opór zastępczy dwóch oporników
+połączonych równolegle oraz wzór na ogniskową układu dwóch cienkich soczewek.
+Sprawdzenie: $6\gop3=2.000000$ oraz $50\gop200=40.000000$.
+
+\paragraph{Wartość skuteczna i promieniowanie.}
+Dla $\gf(x)=x^{2}$ otrzymujemy $a\gop b=\sqrt{a^{2}+b^{2}}$. To wartość
+skuteczna dwóch nieskorelowanych przebiegów. Przykład: $230\gop45=234.360833$
+woltów. Dla $\gf(x)=x^{4}$ otrzymujemy prawo Stefana--Boltzmanna w postaci
+sumy strumieni: $800\gop1000=1089.617257$ kelwina. Wartość $1088.6$, podawana
+w niektórych opracowaniach, jest błędna.
+
+\paragraph{Decybele.}
+Dla $\gf(L)=10^{L/10}$ otrzymujemy
+$L_{1}\gop L_{2}=10\log_{10}\big(10^{L_{1}/10}+10^{L_{2}/10}\big)$.
+Dwa źródła po $80$ dB dają $83.010300$ dB, a nie $160$ dB.
+
+\paragraph{Składanie prędkości.}
+Dla $\gf(v)=\operatorname{artanh}(v/c)$ otrzymujemy
+\[
+v_{1}\gop v_{2}=\frac{v_{1}+v_{2}}{1+v_{1}v_{2}/c^{2}}.
+\]
+To wzór Einsteina \cite{einstein1905}. Dla $v_{1}=v_{2}=0.5c$ wynik wynosi
+$0.8c$. Dla $v_{1}=v_{2}=0.9c$ wynik wynosi $0.994475c$. Wynik nigdy nie
+przekracza $c$, ponieważ $\tanh$ ma obraz w $(-1,1)$. Ta struktura jest znana
+jako przestrzeń żyrowektorowa \cite{ungar2008}.
+
+\paragraph{Łączenie niezależnych przesłanek.}
+Dla $\gf(p)=\ln\frac{p}{1-p}$ otrzymujemy
+\[
+p_{1}\gop p_{2}=\frac{p_{1}p_{2}}{p_{1}p_{2}+(1-p_{1})(1-p_{2})}.
+\]
+To aktualizacja ilorazu szans dla dwóch niezależnych dowodów na rzecz zdarzenia.
+Przykład: $0.8\gop0.7=0.903226$. Dwa zgodne, niezależne świadectwa podnoszą
+pewność, ale wynik pozostaje w przedziale $(0,1)$.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Prawa fizyki o postaci \eqref{eq:base} oraz wyniki liczbowe.}
+\label{tab:laws}
+\begin{tabularx}{\textwidth}{@{}l l l X@{}}
+\toprule
+\textbf{prawo} & \textbf{generator} & \textbf{znaczenie $\gop$} & \textbf{przykład} \\
+\midrule
+opór równoległy, ogniskowa & $1/x$ & suma przewodności & $6\gop3=2$ \\
+wartość skuteczna & $x^{2}$ & suma mocy & $230\gop45=234.36$ \\
+prawo Stefana--Boltzmanna & $x^{4}$ & suma strumieni & $800\gop1000=1089.62$ \\
+poziom dźwięku & $10^{L/10}$ & suma natężeń & $80\gop80=83.01$ \\
+składanie prędkości & $\operatorname{artanh}(v/c)$ & suma rapidities & $0.5c\gop0.5c=0.8c$ \\
+niezależne dowody & $\ln\frac{p}{1-p}$ & suma logitów & $0.8\gop0.7=0.9032$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Dwa generatory bez elementarnej odwrotności}
+
+\subsection{Generator Lamberta}
+
+Niech $\gf(x)=x+\ln x$ dla $x>0$. Funkcja jest ściśle rosnąca, więc jest
+bijekcją na $\mathbb{R}$. Jej odwrotność ma postać zamkniętą
+$\gfi(y)=W(e^{y})$, gdzie $W$ jest funkcją Lamberta \cite{corless1996}.
+Stałe wynoszą $0_{\gf}=W(1)=\Omega=0.5671432904097838$ oraz $1_{\gf}=1$.
+
+Model ma dwa reżimy. Dla $a,b\ll1$ logarytm dominuje, więc
+\[
+a\gop b=ab\,(1+a+b)+O\big((ab)^{2}\big).
+\]
+Pomiar: dla $a=b=0.01$ odchylenie względne od iloczynu wynosi $0.0201$, czyli
+$a+b$. Dla $a,b\gg1$ dominuje $x$, więc $a\gop b\to a+b$. Pomiar: odchylenie
+względne od sumy spada poniżej $1\%$ dla $x>25.1$ i poniżej $0.1\%$ dla
+$x>251$ (rysunek \ref{fig:phase}).
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{loglogaxis}[
+  fgaaxis,
+  xlabel={$x$},
+  ylabel={wynik},
+  legend pos=south east,
+  xmin=1e-5, xmax=1e5, ymin=1e-6, ymax=1e7,
+]
+\addplot[very thick, blue!70!black] table[x=x,y=add]
+  {data/lambert_phase.dat};
+\addlegendentry{$0.8\gop x$}
+\addplot[thick, black!55, dashed, domain=1:1e5] {0.8+x};
+\addlegendentry{$0.8+x$ (dla $x>1$)}
+\addplot[thick, red!70!black, dotted, mark=none, domain=1e-5:1] {0.8*x};
+\addlegendentry{$0.8\,x$ (dla $x<1$)}
+\end{loglogaxis}
+\end{tikzpicture}
+\caption{Arytmetyka Lamberta dla $a=0.8$. Przy $x\ll1$ działanie pokrywa się
+z mnożeniem. Przy $x\gg1$ pokrywa się z dodawaniem. Przejście jest gładkie
+i nie ma progu. Dane z \texttt{paper/data/lambert\_phase.dat}.}
+\label{fig:phase}
+\end{figure}
+
+Odwrotność $\gfi$ wymaga ostrożności. Postać zamknięta $W(e^{y})$ zawodzi
+numerycznie. Wyrażenie $e^{y}$ przekracza zakres liczby podwójnej precyzji dla
+$y>709.78$, a funkcja $W$ jest wtedy nieosiągalna. Poprawne rozwiązanie nie
+tworzy $e^{y}$. Rozwiązuje równanie $x+\ln x=y$ bezpośrednio, w dziedzinie
+logarytmu, metodą Newtona z punktem startowym $y-\ln y$. Tabela
+\ref{tab:lambert} porównuje oba sposoby.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Obliczanie $\gfi(y)$ dla generatora Lamberta. Kolumna \enquote{postać
+zamknięta} to $W(e^{y})$ w arytmetyce IEEE-754 podwójnej precyzji. Kolumna
+\enquote{rozwinięcie} to $y-\ln y+\ln y/y$, czyli przybliżenie stosowane w kodzie
+źródłowym.}
+\label{tab:lambert}
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+$y$ & postać zamknięta $W(e^{y})$ & rozwiązanie w dziedzinie $\ln$ & błąd rozwinięcia \\
+\midrule
+$10$      & $7.9294200950$  & $7.9294200950$  & $2.2\cdot10^{-4}$ \\
+$100$     & $95.4414866456$ & $95.4414866456$ & $6.3\cdot10^{-6}$ \\
+$500$     & $493.7978737290$& $493.7978737290$& $1.1\cdot10^{-7}$ \\
+$700$     & $693.4583088790$& $693.4583088790$& $4.4\cdot10^{-8}$ \\
+$710$     & przepełnienie   & $703.4440117120$& $4.2\cdot10^{-8}$ \\
+$10^{4}$  & przepełnienie   & $9990.7905809943$ & $3.3\cdot10^{-11}$ \\
+$10^{6}$  & przepełnienie   & $999986.1845032576$ & $1.2\cdot10^{-16}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dwa wnioski. Pierwszy: rozwinięcie asymptotyczne ma błąd $2.2\cdot10^{-4}$ przy
+$y=10$ i $1.1\cdot10^{-7}$ przy $y=500$. Nie daje więc dokładności maszynowej,
+wbrew często powtarzanemu twierdzeniu. Drugi: przepełnienie nie jest
+wadą funkcji $W$, lecz konsekwencją liczenia $e^{y}$ tam, gdzie wystarczy
+rozwiązać równanie wyjściowe.
+
+\subsection{Generator Keplera}
+
+Niech $\gf(x)=x+k\sin x$ dla $k\in(0,1)$. Pochodna $\gf'(x)=1+k\cos x$ jest
+dodatnia, więc $\gf$ jest bijekcją $\mathbb{R}\to\mathbb{R}$. Odwrotność nie ma
+postaci zamkniętej. Obliczamy ją metodą Newtona z punktem startowym $y$;
+liczba iteracji do dokładności $10^{-15}$ wynosi od trzech do pięciu.
+Funkcja jest znana jako równanie Keplera w astronomii.
+
+Stałe tego modelu są inne, niż podaje się w literaturze wtórnej.
+$0_{\gf}=0$, ale $1_{\gf}=0.553315638360866$, nie $1$. Sprawdzenie:
+$\gf(1)=1.715250337086712$, więc $\gf(1)\neq1$. Tabela wcześniejszych
+opracowań podaje $1_{\gf}=1$ i jest błędna.
+
+\section{Operator synergiczny: wynik negatywny}
+
+W tej sekcji badamy modyfikację, w której suma zależy od otoczenia.
+
+\begin{definition}[operator synergiczny]
+\label{def:synergy}
+Niech $\gf\colon D\to\mathbb{R}$ będzie bijekcją, a $s\ge0$ parametrem.
+Definiujemy
+\begin{equation}
+\label{eq:synergy}
+a\gop_{s}b=\gf^{-1}\!\left(\Big(\sqrt{\gf(a)+\gf(b)}+\sqrt{s}\Big)^{2}-s\right).
+\end{equation}
+Równoważnie $a\gop_{s}b=\gf^{-1}\big(X+2\sqrt{sX}\big)$ dla
+$X=\gf(a)+\gf(b)$ i $X\ge0$.
+\end{definition}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Zmierzone naruszenia dla operatora \eqref{eq:synergy} z generatorem
+Lamberta, $a=1.3$, $b=1.7$, $c=2.3$. Kolumna druga: różnica względna między
+$(a\gop_s b)\gop_s c$ i $a\gop_s(b\gop_s c)$. Kolumna trzecia:
+$|a\gop_s 0_{\gf}-a|$.}
+\label{tab:synergy}
+\begin{tabular}{@{}rrr@{}}
+\toprule
+$s$ & naruszenie łączności & naruszenie elementu neutralnego \\
+\midrule
+$0$     & $0$            & $0$ \\
+$0.01$  & $1.07\cdot10^{-2}$ & $0.145$ \\
+$0.10$  & $2.83\cdot10^{-2}$ & $0.478$ \\
+$0.50$  & $4.82\cdot10^{-2}$ & $1.139$ \\
+$1.00$  & $5.75\cdot10^{-2}$ & $1.673$ \\
+$2.00$  & $6.64\cdot10^{-2}$ & $2.471$ \\
+$5.00$  & $7.64\cdot10^{-2}$ & $4.156$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{loglogaxis}[
+  fgaaxis,
+  xlabel={$s$},
+  ylabel={naruszenie},
+  legend pos=north west,
+  xmin=0.008, xmax=6, ymin=5e-3, ymax=1e1,
+]
+\addplot[very thick, blue!70!black, mark=*, mark size=2pt]
+  table[x=s,y=assoc_defect] {data/synergy_assoc.dat};
+\addlegendentry{naruszenie łączności}
+\addplot[very thick, red!70!black, mark=square*, mark size=2pt]
+  table[x=s,y=identity_defect] {data/synergy_assoc.dat};
+\addlegendentry{naruszenie elementu neutralnego}
+\end{loglogaxis}
+\end{tikzpicture}
+\caption{Naruszenia rosną jak $\sqrt{s}$. Oś pionowa w skali logarytmicznej.
+Przy $s\to0$ operator wraca do arytmetyki \eqref{eq:base}.}
+\label{fig:synergy}
+\end{figure}
+
+\begin{proposition}
+\label{prop:synergy}
+Dla $s>0$ działanie \eqref{eq:synergy} jest przemienne, nie jest łączne i nie
+ma elementu neutralnego w $D$.
+\end{proposition}
+
+\begin{proof}
+Przemienność wynika z symetrii $X$. Dla $a=\gf^{-1}(x)$ i $b=\gf^{-1}(0)$
+otrzymujemy $a\gop_{s}b=\gf^{-1}\big(x+2\sqrt{sx}\big)\neq a$ dla $x>0$, więc
+$0_{\gf}$ nie jest elementem neutralnym. Dla łączności wystarczy kontrprzykład
+liczbowy: dla generatora Lamberta, $a=1.3$, $b=1.7$, $c=2.3$ i $s=0.5$
+otrzymujemy $11.626886$ oraz $12.215317$; różnica względna wynosi
+$4.8\cdot10^{-2}$.
+\end{proof}
+
+
+Wniosek jest następujący. Operator \eqref{eq:synergy} nie jest arytmetyką.
+Nie jest izomorfizmem $(\mathbb{R},+)$, nie ma elementu neutralnego i zależy od
+kolejności składania. Można go używać jako jednoetapowej aktualizacji
+nieliniowej w pętli sterowania. Nie można na jego podstawie twierdzić, że
+\enquote{zmienia arytmetykę}, że \enquote{łamie zasadę zachowania energii} ani że
+\enquote{suma wszystkich dawek} jest dobrze określona. Ostatnie zdanie jest
+szczególnie ważne: bez łączności nie istnieje niezależny od kolejności wynik
+wielu dawek.
+
+Dodatkowa obserwacja. Człon $2\sqrt{sX}$ jest obcinany do zera, gdy $X<0$.
+Dla generatora Lamberta warunek $X<0$ odpowiada $a<0.5671$. Operator działa
+wtedy jak identyczność. Ta asymetria jest artefaktem obcięcia, a nie
+własnością fizyczną.
+
+\section{Twierdzenia, których schemat nie uzasadnia}
+
+Poniższa lista zbiera zdania, które pojawiają się w opracowaniach schematu
+\eqref{eq:base}, a nie wynikają z niego.
+
+\begin{enumerate}[leftmargin=1.6em]
+  \item \textbf{Nowa jedynka Keplera równa $1$.} Fałsz. $1_{\gf}=0.5533$ dla
+        $k=0.85$; wartość zależy od $k$.
+  \item \textbf{Zero w arytmetyce harmonicznej.} Nie istnieje w $(0,\infty)$;
+        $0_{\gf}=\infty$ leży poza dziedziną.
+  \item \textbf{Odejmowanie w arytmetyce potęgowej.} Istnieje tylko dla
+        $a\ge b$; dla $a<b$ wynik jest zespolony.
+  \item \textbf{Usunięcie osobliwości czarnej dziury przez podstawienie
+        logarytmiczne.} Zmiana współrzędnych nie usuwa niezmiennika
+        Kretschmanna, który dla metryki Schwarzschilda równa się
+        $48G^{2}M^{2}/(c^{4}r^{6})$ i rozbiega się przy $r=0$ w każdym układzie.
+        Współrzędna żółwia $r^{*}=r+r_{s}\ln|r/r_{s}-1|$ jest standardowym
+        narzędziem analizy horyzontu, a nie modelem wnętrza.
+  \item \textbf{Napęd warp jako konsekwencja arytmetyki.} Metryka Alcubierre'a
+        wymaga ujemnej gęstości energii. To hipoteza kosztowa, nie wynik
+        schematu.
+  \item \textbf{Konieczność pięciu elementów opisu.} Liczba elementów jest
+        wyborem redakcyjnym. Nie ma twierdzenia, które ją wymusza.
+  \item \textbf{Nowość schematu.} Schemat jest z 1972 roku
+        \cite{grossman1972}. Nowy może być wybór $\gf$, dziedzina zastosowań
+        i implementacja.
+\end{enumerate}
+
+\section{Wnioski}
+
+Schemat \eqref{eq:base} jest językiem, nie teorią. Jego wartość polega na
+trzech rzeczach. Po pierwsze, daje jedną notację dla praw, które wyglądają
+różnie. Po drugie, pozwala przenieść gotowe twierdzenia algebry na nowy
+kontekst bez dowodu. Po trzecie, ujawnia granice: monoid, półgrupa i brak
+odwrotności to informacje o modelu, a nie o przedmiocie badań.
+
+Człon synergiczny jest pożyteczny jako regulator. Nie jest arytmetyką.
+Nazywanie go arytmetyką prowadzi do fałszywych twierdzeń o zachowaniu energii
+i o niezależności wyniku od kolejności.
+
+Dalsza praca ma trzy kierunki. Pierwszy: weryfikacja modeli na danych
+pomiarowych, a nie na liczbach dobranych. Drugi: implementacja sterownika
+opartego na generatorze saturacji i porównanie z regulatorem PID na tym samym
+obiekcie. Trzeci: publikacja kodu i danych razem z tekstem, aby każdą liczbę
+w tabelach można było odtworzyć jednym poleceniem.
+
+{\footnotesize
+\setlength{\itemsep}{1pt}
+\begin{thebibliography}{9}
+\bibitem{grossman1972} M. Grossman, R. Katz.
+\emph{Non-Newtonian Calculus}. Lee Press, Pigeon Cove, 1972.
+\bibitem{kolmogorov1930} A. N. Kołmogorow.
+Sur la notion de la moyenne. \emph{Atti Accad. Naz. Lincei} 12 (1930), 388--391.
+\bibitem{nagumo1930} M. Nagumo.
+Über eine Klasse von Mittelbildungen mit Anwendungen auf die
+Determinantentheorie. \emph{Tôhoku Math. J.} 31 (1930), 71--79.
+\bibitem{aczel1966} J. Aczél.
+\emph{Lectures on Functional Equations and Their Applications}.
+Academic Press, New York, 1966.
+\bibitem{einstein1905} A. Einstein.
+Zur Elektrodynamik bewegter Körper. \emph{Ann. Phys.} 17 (1905), 891--921.
+\bibitem{ungar2008} A. A. Ungar.
+\emph{Analytic Hyperbolic Geometry and Albert Einstein's Special Theory of
+Relativity}. World Scientific, 2008.
+\bibitem{tsallis1988} C. Tsallis.
+Possible generalization of Boltzmann--Gibbs statistics.
+\emph{J. Stat. Phys.} 52 (1988), 479--487.
+\bibitem{corless1996} R. M. Corless, G. H. Gonnet, D. E. G. Hare, D. J. Jeffrey,
+D. E. Knuth. On the Lambert $W$ function.
+\emph{Adv. Comput. Math.} 5 (1996), 329--359.
+\bibitem{czachor2016} M. Czachor.
+Relativity of arithmetic as a fundamental symmetry of physics.
+\emph{Quantum Stud. Math. Found.} 3 (2016), 123--133.
+\end{thebibliography}
+}
+
+\end{document}

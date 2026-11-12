@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "Function-generated arithmetics: catalogue, structural classification and numerical limits"
+message: "If you use this code or the accompanying paper, please cite it as below."
+type: software
+authors:
+  - family-names: Szulia
+    given-names: Maciej
+version: 1.0.0
+date-released: 2026-11-12
+license: MIT
+repository-code: "https://github.com/maciejszulia/function-generated-arithmetics"
+abstract: >-
+  Reference implementation and numerical verification of operations
+  a (+) b = g^{-1}(g(a) + g(b)) for ten generators, with a structural
+  classification (group, monoid, semigroup) and a negative result for the
+  non-associative synergy variant.
+keywords:
+  - non-Newtonian calculus
+  - transport of structure
+  - generalized arithmetic
+  - Lambert W function
+  - numerical verification

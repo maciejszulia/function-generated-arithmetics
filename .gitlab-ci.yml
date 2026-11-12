@@ -8,10 +8,12 @@ verify:
   script:
     - pip install --no-cache-dir -r requirements.txt
     - python scripts/verify.py
+    - python -m src.problems
     - python -m pytest -q
   artifacts:
     paths:
       - results.json
+      - results_problems.json
     expire_in: 30 days
 
 paper:
@@ -21,7 +23,10 @@ paper:
     - apt-get update -qq && apt-get install -y -qq python3 python3-numpy >/dev/null
   script:
     - python3 scripts/verify.py
+    - python3 -m src.problems
     - cd paper
+    - pdflatex -interaction=nonstopmode generator_calculus_pl.tex >/dev/null
+    - pdflatex -interaction=nonstopmode generator_calculus_pl.tex >/dev/null
     - pdflatex -interaction=nonstopmode paper_pl.tex >/dev/null
     - pdflatex -interaction=nonstopmode paper_pl.tex >/dev/null
     - pdflatex -interaction=nonstopmode paper_en.tex >/dev/null
@@ -30,4 +35,5 @@ paper:
     paths:
       - paper/paper_pl.pdf
       - paper/paper_en.pdf
+      - paper/generator_calculus_pl.pdf
     expire_in: 30 days

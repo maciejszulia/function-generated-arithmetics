@@ -19,12 +19,16 @@ jobs:
           pip install -r requirements.txt
       - name: Verify every number in the paper
         run: python scripts/verify.py
+      - name: Twenty problems of the second paper
+        run: python -m src.problems
       - name: Unit tests
         run: python -m pytest -q
       - uses: actions/upload-artifact@v4
         with:
           name: results
-          path: results.json
+          path: |
+            results.json
+            results_problems.json
 
   paper:
     runs-on: ubuntu-latest
@@ -33,7 +37,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install numpy && python scripts/verify.py
+      - run: pip install numpy && python scripts/verify.py && python -m src.problems
+      - name: Build second paper, Polish
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: generator_calculus_pl.tex
+          working_directory: paper
       - name: Build Polish paper
         uses: xu-cheng/latex-action@v3
         with:
@@ -50,3 +59,4 @@ jobs:
           path: |
             paper/paper_pl.pdf
             paper/paper_en.pdf
+            paper/generator_calculus_pl.pdf

@@ -1,0 +1,340 @@
+[
+  {
+    "id": "A",
+    "branch": "Mechanika klasyczna",
+    "title": "Swobodny bąk symetryczny",
+    "axes": "jednostka",
+    "resid": 2.913808083704339e-12,
+    "tol": 1e-09,
+    "ok": true,
+    "len_classic": 55,
+    "len_new": 41,
+    "ratio": 0.7454545454545455,
+    "facts": {}
+  },
+  {
+    "id": "B",
+    "branch": "Mechanika klasyczna",
+    "title": "Częstość drgań wokół minimum",
+    "axes": "jednostka",
+    "resid": 1.7763568394002505e-15,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 77,
+    "len_new": 39,
+    "ratio": 0.5064935064935064,
+    "facts": {
+      "LJk": [
+        57.14643787085515,
+        3
+      ],
+      "LJomega": [
+        7.559526299369237,
+        3
+      ],
+      "LJfd": [
+        8.789543742035057e-10,
+        null
+      ]
+    }
+  },
+  {
+    "id": "C",
+    "branch": "Grawitacja i mechanika nieba",
+    "title": "Orbita Keplera",
+    "axes": "jednostka",
+    "resid": 1.4267985749698425e-14,
+    "tol": 1e-09,
+    "ok": true,
+    "len_classic": 36,
+    "len_new": 69,
+    "ratio": 1.9166666666666667,
+    "facts": {
+      "KeplerOrders": [
+        10,
+        0
+      ]
+    }
+  },
+  {
+    "id": "D",
+    "branch": "Grawitacja i mechanika nieba",
+    "title": "Nadwyżka hiperboliczna",
+    "axes": "skala",
+    "resid": 9.803269307440132e-14,
+    "tol": 1e-09,
+    "ok": true,
+    "len_classic": 19,
+    "len_new": 32,
+    "ratio": 1.6842105263157894,
+    "facts": {
+      "Oberth": [
+        0.45825756949558416,
+        3
+      ]
+    }
+  },
+  {
+    "id": "E",
+    "branch": "Drgania, fale i akustyka",
+    "title": "Oscylator tłumiony",
+    "axes": "jednostka",
+    "resid": 5.717648576819556e-15,
+    "tol": 1e-09,
+    "ok": true,
+    "len_classic": 101,
+    "len_new": 45,
+    "ratio": 0.44554455445544555,
+    "facts": {}
+  },
+  {
+    "id": "F",
+    "branch": "Drgania, fale i akustyka",
+    "title": "Suma poziomów dźwięku",
+    "axes": "temperatura",
+    "resid": 1.4210854715202004e-14,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 20,
+    "len_new": 15,
+    "ratio": 0.75,
+    "facts": {
+      "DbSame": [
+        83.0102999566398,
+        2
+      ],
+      "DbTen": [
+        0.4139268515822507,
+        2
+      ],
+      "DbH": [
+        4.3429448190325175,
+        2
+      ]
+    }
+  },
+  {
+    "id": "G",
+    "branch": "Termodynamika i fizyka statystyczna",
+    "title": "Energia swobodna dwóch faz",
+    "axes": "temperatura",
+    "resid": 5.551115123125783e-17,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 41,
+    "len_new": 31,
+    "ratio": 0.7560975609756098,
+    "facts": {
+      "SchottkyT": [
+        0.41680000000000006,
+        3
+      ],
+      "SchottkyC": [
+        0.43922883817389147,
+        3
+      ]
+    }
+  },
+  {
+    "id": "H",
+    "branch": "Termodynamika i fizyka statystyczna",
+    "title": "Relacje Maxwella",
+    "axes": "jednostka",
+    "resid": 2.2564667496738356e-08,
+    "tol": 1e-06,
+    "ok": true,
+    "len_classic": 70,
+    "len_new": 11,
+    "ratio": 0.15714285714285714,
+    "facts": {
+      "CarnotArea": [
+        0.6931471962005813,
+        4
+      ]
+    }
+  },
+  {
+    "id": "I",
+    "branch": "Elektryczność i magnetyzm",
+    "title": "Równania Maxwella",
+    "axes": "jednostka",
+    "resid": 4.440892098500626e-16,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 41,
+    "len_new": 30,
+    "ratio": 0.7317073170731707,
+    "facts": {}
+  },
+  {
+    "id": "J",
+    "branch": "Elektryczność i magnetyzm",
+    "title": "Impedancja wejściowa linii",
+    "axes": "skala",
+    "resid": 1.0436096431476471e-14,
+    "tol": 1e-11,
+    "ok": true,
+    "len_classic": 24,
+    "len_new": 26,
+    "ratio": 1.0833333333333333,
+    "facts": {}
+  },
+  {
+    "id": "K",
+    "branch": "Optyka",
+    "title": "Załamanie światła",
+    "axes": "temperatura",
+    "resid": 7.199574270089215e-12,
+    "tol": 1e-09,
+    "ok": true,
+    "len_classic": 77,
+    "len_new": 60,
+    "ratio": 0.7792207792207793,
+    "facts": {
+      "SnellDefect": [
+        4.502233774683617e-06,
+        null
+      ]
+    }
+  },
+  {
+    "id": "L",
+    "branch": "Optyka",
+    "title": "Dyfrakcja na N szczelinach",
+    "axes": "jednostka",
+    "resid": 7.105427357601002e-16,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 99,
+    "len_new": 43,
+    "ratio": 0.43434343434343436,
+    "facts": {}
+  },
+  {
+    "id": "M",
+    "branch": "Teoria względności",
+    "title": "Obrót Thomasa--Wignera",
+    "axes": "komutator",
+    "resid": 1.2101430968414206e-14,
+    "tol": 1e-10,
+    "ok": true,
+    "len_classic": 41,
+    "len_new": 32,
+    "ratio": 0.7804878048780488,
+    "facts": {
+      "WignerDeg": [
+        42.89619886834921,
+        1
+      ],
+      "WignerSmall": [
+        0.9983336184318922,
+        3
+      ]
+    }
+  },
+  {
+    "id": "N",
+    "branch": "Teoria względności",
+    "title": "Peryhelium Merkurego",
+    "axes": "jednostka",
+    "resid": 2.517517473993247e-05,
+    "tol": 0.001,
+    "ok": true,
+    "len_classic": 88,
+    "len_new": 57,
+    "ratio": 0.6477272727272727,
+    "facts": {
+      "MercuryArcsec": [
+        42.980208082863,
+        2
+      ],
+      "MercuryLambda": [
+        7.987354181647475,
+        2
+      ]
+    }
+  },
+  {
+    "id": "O",
+    "branch": "Mechanika kwantowa",
+    "title": "Oscylacje Rabiego spinu",
+    "axes": "jednostka",
+    "resid": 3.74950070991531e-12,
+    "tol": 1e-10,
+    "ok": true,
+    "len_classic": 50,
+    "len_new": 41,
+    "ratio": 0.82,
+    "facts": {}
+  },
+  {
+    "id": "P",
+    "branch": "Mechanika kwantowa",
+    "title": "Najmniejsze działanie",
+    "axes": "temperatura",
+    "resid": 0.00042836815955160645,
+    "tol": 0.001,
+    "ok": true,
+    "len_classic": 35,
+    "len_new": 27,
+    "ratio": 0.7714285714285715,
+    "facts": {}
+  },
+  {
+    "id": "Q",
+    "branch": "Fizyka atomowa, jądrowa i cząstek",
+    "title": "Efektywny okres półtrwania",
+    "axes": "skala",
+    "resid": 2.220446049250313e-16,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 30,
+    "len_new": 16,
+    "ratio": 0.5333333333333333,
+    "facts": {
+      "HalfEff": [
+        7.2727272727272725,
+        2
+      ]
+    }
+  },
+  {
+    "id": "R",
+    "branch": "Fizyka atomowa, jądrowa i cząstek",
+    "title": "Rozpraszanie Comptona",
+    "axes": "jednostka",
+    "resid": 9.880984919163893e-15,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 68,
+    "len_new": 40,
+    "ratio": 0.5882352941176471,
+    "facts": {}
+  },
+  {
+    "id": "S",
+    "branch": "Materia skondensowana i płyny",
+    "title": "Fonony w łańcuchu atomów",
+    "axes": "jednostka",
+    "resid": 2.220446049250313e-15,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 60,
+    "len_new": 50,
+    "ratio": 0.8333333333333334,
+    "facts": {}
+  },
+  {
+    "id": "T",
+    "branch": "Materia skondensowana i płyny",
+    "title": "Opływ walca z cyrkulacją",
+    "axes": "jednostka",
+    "resid": 8.903402257549168e-16,
+    "tol": 1e-12,
+    "ok": true,
+    "len_classic": 66,
+    "len_new": 47,
+    "ratio": 0.7121212121212122,
+    "facts": {}
+  }
+]

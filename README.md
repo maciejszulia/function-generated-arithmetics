@@ -15,6 +15,48 @@ measures the numerical cost of the generators that have no elementary inverse.
 
 **[Paper, Polish](paper/paper_pl.pdf)** · **[Paper, English](paper/paper_en.pdf)**
 
+## Second paper: generator calculus
+
+**[Rachunek generatorów (Polish)](paper/generator_calculus_pl.pdf)** extends the
+scheme by two axes and tests the result on twenty physics problems.
+
+| axis | what is chosen | what it yields |
+|---|---|---|
+| scale | generator `g` | `a ⊕ b = g⁻¹(g(a) + g(b))`, the subject of the first paper |
+| unit | element `e` with `e² = +1`, `−1` or `0` | double, complex and dual numbers, Clifford multivectors, jets (derivatives as arithmetic), cyclic numbers |
+| temperature | `h` in `a ⊕ₕ b = h ln(e^(a/h) + e^(b/h))` | decibels, free energy, the sum over paths; `h → 0` gives `(max, +)` and `(min, +)` |
+
+Composition that does not commute is measured by the commutator (Thomas–Wigner
+rotation).
+
+Like the first paper, this one is a language, not a theory. It contains no new
+theorem and predicts no new phenomenon. It measures one thing: twenty problems,
+two from each of ten branches of physics, are written twice, in textbook
+notation and in the notation of the three axes, and the symbols of both are
+counted by one rule (`tex_len` in `src/problems.py`).
+
+- The new notation is shorter in 17 problems and longer in 3. The median length
+  ratio is 0.75.
+- Every problem is computed along both routes and the two numbers agree: 17
+  tests to 7·10⁻¹², three with a stated larger tolerance.
+- Octonions, ordinal numbers and p-adic numbers stay outside the model.
+
+![Length of the two notations for twenty problems](paper/figures/lengths.png)
+
+![Map of number systems on the three axes](paper/figures/map.png)
+
+### Simulations
+
+One per branch of physics, all produced by `scripts/figures.py`.
+
+| | |
+|---|---|
+| <img src="paper/figures/sim01.gif" width="300"><br>Free symmetric top: a rotor gives the attitude without integration | <img src="paper/figures/sim02.gif" width="300"><br>Kepler orbit: `w` moves harmonically, `z = w²` traces the ellipse |
+| <img src="paper/figures/sim03.gif" width="300"><br>Damped oscillator: one formula through critical damping (`e² = 0`) | <img src="paper/figures/sim04.gif" width="300"><br>Two phases: as `h = −T/N → 0` the entropy becomes a step |
+| <img src="paper/figures/sim05.gif" width="300"><br>Circular wave: a vector turned by a rotor through `kz − ωt` | <img src="paper/figures/sim06.gif" width="300"><br>Refraction: a wavefront computed in `(min, +)` arithmetic |
+| <img src="paper/figures/sim07.gif" width="300"><br>Perihelion advance of `2πλ` per orbit (here `λ = 0.04`) | <img src="paper/figures/sim08.gif" width="300"><br>Sum over paths: phases agree only near the classical path |
+| <img src="paper/figures/sim09.gif" width="300"><br>Two decay channels act as one with half-life `T₁ ⊕ T₂` | <img src="paper/figures/sim10.gif" width="300"><br>Flow past a cylinder: circulation moves the stagnation points |
+
 ## What this is, and what it is not
 
 It is a language. For a chosen `g` it gives one notation for composition laws
@@ -64,10 +106,15 @@ python scripts/verify.py      # all numbers in the paper; writes paper/data/*.da
 python -m pytest -q           # the same laws as unit tests
 cd paper && pdflatex paper_pl.tex && pdflatex paper_pl.tex
 cd paper && pdflatex paper_en.tex && pdflatex paper_en.tex
+
+python -m src.problems        # second paper: 20 problems, both routes; writes results_problems.json
+python scripts/figures.py     # second paper: 12 figures and 10 animations
+cd paper && pdflatex generator_calculus_pl.tex && pdflatex generator_calculus_pl.tex
 ```
 
-Only `numpy` is required. The PDFs need a TeX Live installation with `pgfplots`,
-`babel-polish` and `csquotes`.
+Only `numpy` is required for the checks. The figures of the second paper need
+`matplotlib` and `seaborn`. The PDFs need a TeX Live installation with
+`pgfplots`, `babel-polish`, `csquotes`, `icomma` and `placeins`.
 
 ## Layout
 
@@ -80,6 +127,15 @@ src/fga.py                                       reference implementation
 scripts/verify.py                                verification and data generation
 results.json                                     machine-readable results
 tests/test_axioms.py                             pytest wrapper
+
+paper/generator_calculus_pl.tex  .pdf            second paper, Polish
+paper/data/problems_table.tex                    generated formulas and numbers of the second paper
+paper/figures/                                   figures (pdf, png) and animations (gif)
+src/gcalc.py                                     units, jets and the thermal sum
+src/problems.py                                  twenty problems: two notations, checks, symbol count
+scripts/figures.py                               figures and animations
+results_problems.json                            machine-readable results of the second paper
+tests/test_problems.py                           pytest wrapper
 ```
 
 ## Selected results
